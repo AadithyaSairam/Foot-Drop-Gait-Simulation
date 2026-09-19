@@ -1,8 +1,8 @@
-# Foot drop — simulating functional electrical stimulation of the ankle
+# Foot drop: simulating functional electrical stimulation of the ankle
 
 Foot drop is the inability to dorsiflex the ankle during the swing phase of
 gait: the toes catch on the ground because tibialis anterior is not lifting the
-foot. One treatment is functional electrical stimulation — a surface electrode
+foot. One treatment is functional electrical stimulation, a surface electrode
 firing TA at the right moment in the swing phase.
 
 This is a MATLAB simulation of that ankle, built to answer a design question:
@@ -18,20 +18,20 @@ MainFile
 Two antagonist muscles acting about the ankle, each as a Hill-type
 muscle-tendon unit:
 
-- **Tibialis anterior** — the dorsiflexor, the muscle being stimulated.
-- **Soleus** — the plantarflexor, opposing it.
+- **Tibialis anterior**, the dorsiflexor, the muscle being stimulated.
+- **Soleus**, the plantarflexor, opposing it.
 
 Each is modelled as a contractile element in parallel with a passive elastic
 element, in series with a tendon. Force comes from three multiplied terms:
 
-- **Force–length** — a muscle generates maximum force at one particular length,
+- **Force-length**, a muscle generates maximum force at one particular length,
   falling off either side, because that is where actin and myosin overlap best.
-- **Force–velocity** — a shortening muscle produces less force the faster it
+- **Force-velocity**, a shortening muscle produces less force the faster it
   shortens, and a lengthening muscle more.
-- **Activation** — the fraction of the muscle currently recruited, driven here
+- **Activation**, the fraction of the muscle currently recruited, driven here
   by the stimulation train rather than by voluntary drive.
 
-Both force–length and force–velocity are fitted as regressions
+Both force-length and force-velocity are fitted as regressions
 (`ForceLengthRegression.m`, `ForceVelocityRegression.m`) rather than evaluated
 from a closed form, and cached in globals so the ODE solver is not refitting
 them at every timestep.
@@ -60,7 +60,7 @@ caught.
 
 | | |
 |---|---|
-| `MainFile.m` | Entry point — parameters and the run |
+| `MainFile.m` | Entry point, parameters and the run |
 | `SimulateModel.m` | The ODE integration over the swing phase |
 | `Force_TA.m`, `Force_Soleus.m` | Total force per muscle |
 | `ForceLength.m`, `ForceVelocity.m`, `ForceParallel.m`, `ForceTendon.m` | The Hill model's elements |
@@ -80,7 +80,7 @@ caught.
 - **Resting lengths are literature averages**, not measured from a subject, so
   the absolute angles should be read as indicative rather than predictive. The
   source citations are marked `%% CITATION` in `MainFile.m` and were not filled
-  in — that is a genuine gap, not a formatting artefact.
+  in, that is a genuine gap, not a formatting artefact.
 - **Open-loop stimulation.** The stimulus is a fixed train at a fixed time.
   A real FES system triggers from a heel switch or IMU, and a closed-loop one
   would modulate amplitude against measured ankle angle.
@@ -90,4 +90,4 @@ caught.
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT, see [LICENSE](LICENSE).
