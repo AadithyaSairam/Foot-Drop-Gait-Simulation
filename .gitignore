@@ -1,0 +1,11 @@
+# --- MATLAB ---
+*.asv
+*.m~
+*.mat
+*.mex*
+slprj/
+codegen/
+
+# --- OS ---
+.DS_Store
+Thumbs.db
